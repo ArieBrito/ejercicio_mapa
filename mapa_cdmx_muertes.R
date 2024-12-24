@@ -5,15 +5,15 @@ library(writexl)    # Para escribir archivos Excel
 library(sf)         # Para manipulación de datos espaciales
 
 # Establecer el directorio de trabajo
-setwd("C:/Users/Arie Brito/OneDrive/Escritorio/el caracol")
+setwd("agregar path")
 
 # Leer los datos de mortalidad en un archivo Excel y convertirlos a tibble
-muertes_cdmx <- read_excel("C:/Users/Arie Brito/OneDrive/Escritorio/el caracol/df_cdmx.xlsx",
+muertes_cdmx <- read_excel("df_cdmx.xlsx",
                            col_types = c("text", "text", "text", "numeric")) %>%
   as_tibble()
 
 # Leer el shapefile de los municipios (datos espaciales)
-shape_municipios <- st_read(dsn="C:/Users/Arie Brito/OneDrive/Documentos/geoest/marco_geoestadistico_2022/conjunto_de_datos/00mun.shp", 
+shape_municipios <- st_read(dsn="00mun.shp", 
                             options = "ENCODING=UTF-8")
 
 # Filtrar únicamente los municipios de la Ciudad de México (CVE_ENT == "09")
@@ -51,12 +51,12 @@ mapa_total
 #### MUJERES ####
 
 # Leer los datos de mortalidad de mujeres desde un archivo Excel y convertirlos a tibble
-mujeres_cdmx <- read_excel("C:/Users/Arie Brito/OneDrive/Escritorio/el caracol/df_sex2_cdmx.xlsx",
+mujeres_cdmx <- read_excel("df_sex2_cdmx.xlsx",
                            col_types = c("text", "numeric", "numeric")) %>%
   as_tibble()
 
 # Leer el shapefile de los municipios (datos espaciales)
-shape_municipios <- st_read(dsn="C:/Users/Arie Brito/OneDrive/Documentos/geoest/marco_geoestadistico_2022/conjunto_de_datos/00mun.shp", 
+shape_municipios <- st_read(dsn="00mun.shp", 
                             options = "ENCODING=UTF-8")
 
 # Filtrar únicamente los municipios de la Ciudad de México (CVE_ENT == "09")
